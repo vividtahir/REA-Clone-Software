@@ -11,19 +11,17 @@ import Footer from './components/Footer';
 import { initUser } from './services/api';
 
 export default function App() {
-  const [credits, setCredits] = useState(2);
+  const [credits, setCredits] = useState('Unlimited');
   const [selectedFeature, setSelectedFeature] = useState('clothes');
 
   useEffect(() => {
-    initUser().then((data) => {
-      if (data && data.credits !== undefined) {
-        setCredits(data.credits);
-      }
+    initUser().then(() => {
+      setCredits('Unlimited');
     });
   }, []);
 
   const handleConsumeCredit = () => {
-    setCredits((prev) => Math.max(0, prev - 1));
+    // Unlimited free credits: no consumption needed!
   };
 
   const handleApplyPresetToStudio = (preset) => {

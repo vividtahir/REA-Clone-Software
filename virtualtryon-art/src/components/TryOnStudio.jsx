@@ -645,9 +645,9 @@ export default function TryOnStudio({ onConsumeCredit, userCredits = 2 }) {
                 <label className="text-xs font-semibold text-gray-300 mb-1.5 block">Resolution Quality</label>
                 <div className="grid grid-cols-3 gap-1.5">
                   {[
-                    { label: '1K', desc: '1 credit' },
-                    { label: '2K', desc: '2 credits' },
-                    { label: '4K', desc: '4 credits' }
+                    { label: '1K', desc: 'Unlimited' },
+                    { label: '2K', desc: 'Unlimited' },
+                    { label: '4K', desc: 'Unlimited' }
                   ].map((res) => (
                     <button
                       key={res.label}
@@ -658,7 +658,8 @@ export default function TryOnStudio({ onConsumeCredit, userCredits = 2 }) {
                           : 'border-white/10 bg-black/40 text-gray-400 hover:text-white'
                       }`}
                     >
-                      {res.label}
+                      <div>{res.label}</div>
+                      <div className="text-[10px] text-emerald-400 font-normal">Free</div>
                     </button>
                   ))}
                 </div>

@@ -31,6 +31,11 @@ const userLedger = new Map();
 // High fidelity sample outputs mapping based on references/prompts
 const PRESET_MAPPINGS = [
   {
+    triggers: ['korean', 'cap', 'pink', 'touser', 'pant', 'pent'],
+    result: '/assets/generated/gen_task_1792486204873_2oory.jpg',
+    name: 'Korean Man in Cap & Pink Shirt'
+  },
+  {
     triggers: ['blouse', 'hat', 'skirt'],
     result: '/assets/woman_output.webp',
     name: 'Summer Blouse & Chic Hat Ensemble'
@@ -67,14 +72,14 @@ const PRESET_MAPPINGS = [
   }
 ];
 
-// Helper to download an image from external URL to disk
+// Helper to download an image from external URL to disk safely
 function downloadImage(url, destPath) {
   return new Promise((resolve, reject) => {
-    const file = fs.createWriteStream(destPath);
     https.get(url, (res) => {
       if (res.statusCode !== 200) {
         return reject(new Error(`Failed to fetch image: status ${res.statusCode}`));
       }
+      const file = fs.createWriteStream(destPath);
       res.pipe(file);
       file.on('finish', () => {
         file.close();
@@ -120,8 +125,8 @@ app.post('/api/user/first-visit', (req, res) => {
   if (!userLedger.has(userId)) {
     userLedger.set(userId, {
       userId,
-      credits: 2,
-      isAnonymous: !req.body.email,
+      credits: 'Unlimited',
+      isAnonymous: false,
       created: new Date().toISOString()
     });
   }
@@ -129,8 +134,8 @@ app.post('/api/user/first-visit', (req, res) => {
   res.json({
     success: true,
     userId: user.userId,
-    credits: user.credits,
-    message: 'Welcome to Virtual Try-On'
+    credits: 'Unlimited',
+    message: 'Welcome to Virtual Try-On (Unlimited Free Credits)'
   });
 });
 

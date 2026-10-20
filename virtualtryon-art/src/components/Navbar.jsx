@@ -41,9 +41,9 @@ export default function Navbar({ credits = 2, onNavigate }) {
           {/* User Controls */}
           <div className="flex items-center gap-3">
             {/* Credit Pill */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/40 border border-[#C6A664]/30 text-xs font-medium text-[#C6A664]">
-              <Sparkles className="w-3.5 h-3.5 text-[#FFD700]" />
-              <span>{credits} Free Credits</span>
+            <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-[#FFD700]/50 text-xs font-bold text-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.2)]">
+              <Sparkles className="w-3.5 h-3.5 text-[#FFD700] animate-pulse" />
+              <span>Unlimited Free Credits</span>
             </div>
 
             {/* Language */}
