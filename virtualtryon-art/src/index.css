@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-gold: #C6A664;
+  --primary-gold-bright: #FFD700;
+  --primary-gold-dark: #B8860B;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0E0E0E;
+  color: #EDEDED;
+  overflow-x: hidden;
+}
+
+/* Custom Gold Gradients & Clips */
+.text-gold-gradient {
+  background: linear-gradient(to right, #B8860B, #C6A664, #FFD700);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(to right, #B8860B, #C6A664, #FFD700);
+}
+
+.border-gold-subtle {
+  border-color: rgba(198, 166, 100, 0.25);
+}
+
+/* Glassmorphism Cards */
+.tech-card {
+  background: rgba(20, 20, 20, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(198, 166, 100, 0.25);
+  box-shadow: 0 8px 30px -4px rgba(0, 0, 0, 0.5), 0 0 15px -5px rgba(198, 166, 100, 0.15);
+}
+
+.tech-card:hover {
+  border-color: rgba(198, 166, 100, 0.45);
+}
+
+/* Luxury Button */
+.gradient-button {
+  background: linear-gradient(to right, #B8860B, #C6A664, #FFD700);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.gradient-button:hover {
+  box-shadow: 0 0 25px rgba(198, 166, 100, 0.4);
+  transform: translateY(-1px);
+}
+
+/* Progress Slide Animation */
+@keyframes generation-progress-slide {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+
+.animate-generation-progress {
+  background: linear-gradient(90deg, #b5924d, #e6cc8c, #c6a664);
+  animation: generation-progress-slide 2s linear infinite;
+}
+
+/* Brand Ticker Infinite Scroll */
+@keyframes scrollLoop {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: scrollLoop 25s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0E0E0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C6A664;
+}
