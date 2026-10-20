@@ -17,3 +17,6 @@ scratch_dump/
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Submodules / Tools
+rea/
